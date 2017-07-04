@@ -1,0 +1,150 @@
+package com.example.cc.quizapp;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
+
+public class Main2ctivity extends AppCompatActivity {
+
+    private RadioGroup group;
+    private RadioButton radio;
+
+    private RadioGroup group2;
+    private RadioButton radio2;
+
+    private RadioGroup group3;
+    private RadioButton radio3;
+
+    private RadioGroup group4;
+    private RadioButton radio4;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+
+
+        group = (RadioGroup) findViewById(R.id.radioGroup1);
+
+        group2 = (RadioGroup) findViewById(R.id.radioGroup2);
+
+        group3 = (RadioGroup) findViewById(R.id.radioGroup3);
+
+        group4 = (RadioGroup) findViewById(R.id.radioGroup4);
+
+    }
+
+
+    public void save(View view) {
+        int selectid = group.getCheckedRadioButtonId();
+        radio = (RadioButton) findViewById(selectid);
+
+        int score = 0;
+        int score2 = 0;
+        int score3 = 0;
+        int score4 = 0;
+
+        int answer = 0;
+
+        int selectid2 = group2.getCheckedRadioButtonId();
+
+        radio2 = (RadioButton) findViewById(selectid2);
+
+        int selectid3 = group3.getCheckedRadioButtonId();
+        radio3 = (RadioButton) findViewById(selectid3);
+
+        int selectid4 = group4.getCheckedRadioButtonId();
+        radio4 = (RadioButton) findViewById(selectid4);
+
+        String message = "  ";
+
+        if (radio.getId() == R.id.GloriCopeland) {
+
+            score = 0;
+            // message="incorrect!";
+        } else if (radio.getId() == R.id.KennethHagin) {
+
+            score = 0;
+            //  message="incorrect!";
+        } else if (radio.getId() == R.id.Haptomai) {
+
+            score = 0;
+            //message="incorrect!";
+        } else if (radio.getId() == R.id.KennethCopeland) {
+
+            score = 1;
+            // message="Correct!";
+        }
+
+
+        if (radio2.getId() == R.id.Josiah) {
+
+            score2 = 0;
+            // message="Incorrect !";
+        } else if (radio2.getId() == R.id.Elijah) {
+
+            score2 = 0;
+            // message=" Incorrect!";
+        } else if (radio2.getId() == R.id.Joshua) {
+
+            score2 = 0;
+            // message="Incorrect!";
+        } else if (radio2.getId() == R.id.Hilkiah) {
+
+            score2 = 1;
+            // message="Correct!";
+        }
+
+
+        if (radio3.getId() == R.id.Abraham) {
+
+            score3 = 0;
+            // message="Incorrect!";
+        } else if (radio3.getId() == R.id.Isaiah) {
+
+            score3 = 1;
+            //message="Correct!";
+        } else if (radio3.getId() == R.id.Jeremiah) {
+
+            score3 = 0;
+            // message="Incorrect!";
+        } else if (radio3.getId() == R.id.Samuel) {
+
+            score3 = 0;
+            // message="Incorrect!";
+        }
+
+        if (radio4.getId() == R.id.Favor) {
+
+            score4 = 0;
+            //message="Incorrect!";
+        } else if (radio4.getId() == R.id.Blessed) {
+
+            score4 = 1;
+            //message="Correct!";
+        } else if (radio4.getId() == R.id.Success) {
+
+            score4 = 0;
+            // message="Incorrect!";
+        } else if (radio4.getId() == R.id.Glorious) {
+
+            score4 = 0;
+            //message="Incorrect!";
+        }
+        answer = score + score2 + score3 + score4;
+
+        Toast.makeText(Main2ctivity.this, "your answer is " + answer + " " + "out of 4", Toast.LENGTH_LONG).show();
+    }
+
+    public void back(View view) {
+
+        Intent i = new Intent(Main2ctivity.this, MainActivity.class);
+        startActivity(i);
+
+
+    }
+}
